@@ -8,6 +8,15 @@
     <div>
       <h1><%= @product.name %></h1>
       <p><%= @product.description %></p>
+
+      <% if @product.quantity == 0 %>
+        <div class="quantity">
+          <span class="soldout">Sold Out</span>
+          <button class='btn' disabled>
+            <%= fa_icon "shopping-cart", text: 'Add' %> 
+          </button>
+        </div>
+      <% else %>
       <div class="quantity">
         <span><%= @product.quantity %> in stock at </span>
         <span><%= humanized_money_with_symbol @product.price %></span>
@@ -17,6 +26,7 @@
           <%= fa_icon "shopping-cart", text: 'Add' %>
         <% end %>          
       </div>
+      <% end %>
     </div>
   </article>
 
