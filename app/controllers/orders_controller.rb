@@ -55,5 +55,8 @@ class OrdersController < ApplicationController
     order.save!
     order
   end
-
+  def line_items
+    @order.line_items
+  end
+  helper_method :line_items
 end
