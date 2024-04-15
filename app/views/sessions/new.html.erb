@@ -1,13 +1,20 @@
-<section class="user-registration">
+<section class="user-login">
   <div class="page-header">
     <h1>Login</h1>
   </div>
 
-  <%= form_tag '/login' do %>
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-1">
+      <%= form_for :login, url: '/login' do |f|%>
+        <div class="form-group">
+          Email: <%= f.text_field :email, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          Password: <%= f.password_field :password, class: 'form-control' %>
+        </div>
+        <%= submit_tag "Submit", class: "btn btn-primary" %>
 
-  Email: <%= text_field_tag :email %>
-  Password: <%= password_field_tag :password %>
-  <%= submit_tag "Submit" %>
-
-  <% end %>
+      <% end %>
+    </div>
+  </div>
 </section>
