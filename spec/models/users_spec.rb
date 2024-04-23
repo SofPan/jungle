@@ -19,9 +19,9 @@ RSpec.describe User, type: :model do
       expect(@user).to_not be_valid
     end
 
-    it 'does not save a new user if their email is not unique' do
-      @user1 = User.new name: "testUser", password: "123abc", password_confirmation: "123abc", email: "testUser@test.com"
-      @user2 = User.new name: "testUser2", password: "123abc", password_confirmation: "123abc", email: "testUser@test.com"
+    it 'does not save a new user if the email is not unique' do
+      @user1 = User.new name: "testUser", password: "123abc", password_confirmation: "123abc", email: "email@email.com"
+      @user2 = User.new name: "testUser2", password: "123abc", password_confirmation: "123abc", email: "email@email.com"
 
       expect(@user2).to_not be_valid
     end
